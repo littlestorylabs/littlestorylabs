@@ -1,11 +1,12 @@
 export default function FormPage() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-xl">
-        <h1 className="text-2xl font-bold mb-6 text-center">Kişisel Hikaye Formu</h1>
+      <div className="bg-white p-6 md:p-6 lg:p-6 rounded-2xl shadow-lg w-full max-w-md">
+        <h1 className="text-2xl font-extrabold mb-2 text-center text-gray-900">Kişisel Hikaye Formu</h1>
+        <p className="text-center text-gray-600 mb-6 italic">Kahramanı Olduğun Serüvenin Anahtarı Aşağıda Saklı</p>
+
         <form className="grid gap-4 text-gray-900">
 
-          {/* Hikaye Dili */}
           <label className="font-semibold">Hikaye Dili</label>
           <select className="input text-gray-900 placeholder-gray-700">
             <option value="">Bir dil seçin</option>
@@ -23,7 +24,6 @@ export default function FormPage() {
             <option value="ja">日本語</option>
           </select>
 
-          {/* Çocuk bilgileri */}
           <label className="font-semibold">Çocuğun Adı</label>
           <input type="text" placeholder="Çocuğun Adı" className="input text-gray-900 placeholder-gray-700" />
 
