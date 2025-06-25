@@ -6,7 +6,7 @@ export default function HomePage() {
     <main className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
       <div className="bg-white p-8 rounded-2xl shadow-xl text-center max-w-xl w-full">
         <h1 className="text-3xl font-extrabold mb-4 text-gray-900">
-          Little Story Labs'a Hoş Geldiniz!
+          Little Story Labs&apos;a Hoş Geldiniz!
         </h1>
         <p className="text-gray-700 mb-6">
           Kişiye özel görselli hikayeler oluşturmak artık çok kolay. Çocuğunuzun özelliklerine göre özel bir hikaye oluşturun ve ona unutulmaz bir anı hediye edin.
