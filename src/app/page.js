@@ -1,65 +1,133 @@
+import Hero from "@/components/Hero";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <>
+      {/* HERO IMAGE */}
+      <Hero
+        title="Little Story Labs"
+        subtitle="Müzik yapan, hikâyeler üreten, dijital kitaplar yayınlayan, oyunlar ve dijital karakterler üreten bağımsız bir yaratıcı stüdyo."
+        image="/images/hero/home.jpg"
+      />
+
+      {/* LALIN SPOTLIGHT */}
+      <section className="max-w-6xl mx-auto py-20">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+
+          {/* FOTO */}
+          <div className="relative w-full h-[420px] rounded-2xl overflow-hidden">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/images/artists/lalin.jpg"
+              alt="Lalin Arma"
+              fill
+              className="object-cover"
+              priority
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+
+          {/* METİN */}
+          <div>
+            <p className="text-sm uppercase tracking-widest opacity-60 mb-3">
+              
+            </p>
+
+            <h2 className="text-5xl font-bold mb-4">
+              Lalin
+            </h2>
+
+            <p className="text-lg opacity-80 mb-8">
+              Duyguyu merkeze alan güçlü bir ses.
+              Hikâyelerden doğan bir müzik dünyası.
+            </p>
+
+            <div className="flex gap-4">
+              <Link
+                href="/artists/lalin"
+                className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition"
+              >
+                Lalin’i Keşfet →
+              </Link>
+
+              <Link
+                href="/contact"
+                className="border border-white/30 px-6 py-3 rounded-lg hover:bg-white hover:text-black transition"
+              >
+                İş Birliği
+              </Link>
+            </div>
+
+            <p className="mt-8 text-sm opacity-60">
+              23 Şubat tüm platformlarda. Takipte kalın.
+            </p>
+          </div>
+
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* ANA İÇERİK */}
+      <section className="max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-5 gap-10">
+
+          {/* STUDIO */}
+          <div className="border rounded-xl p-6">
+            <h2 className="text-2xl font-semibold mb-3">Stüdyomuz</h2>
+            <p className="mb-4 opacity-80">
+              Little Story Labs’in vizyonu ve yaratıcı dünyası.
+            </p>
+            <Link href="/studio" className="underline">
+              Detayları gör →
+            </Link>
+          </div>
+
+          {/* ARTISTS */}
+          <div className="border rounded-xl p-6">
+            <h2 className="text-2xl font-semibold mb-3">Lalin</h2>
+            <p className="mb-4 opacity-80">
+              Yeni nesil pop anlatımı.
+            </p>
+            <Link href="/artists/lalin" className="underline">
+              Sanatçı sayfası →
+            </Link>
+          </div>
+
+          {/* BOOKS */}
+          <div className="border rounded-xl p-6">
+            <h2 className="text-2xl font-semibold mb-3">Kitaplar</h2>
+            <p className="mb-4 opacity-80">
+              Işığın Tapınağı ve mitolojik eserler.
+            </p>
+            <Link href="/books" className="underline">
+              Kitaplara göz at →
+            </Link>
+          </div>
+
+          {/* GAMES */}
+          <div className="border rounded-xl p-6">
+            <h2 className="text-2xl font-semibold mb-3">Oyunlar</h2>
+            <p className="mb-4 opacity-80">
+              Reflex Rush ve yeni projeler.
+            </p>
+            <Link href="/games" className="underline">
+              Oyunları incele →
+            </Link>
+          </div>
+
+          {/* CONTACT */}
+          <div className="border rounded-xl p-6">
+            <h2 className="text-2xl font-semibold mb-3">İletişim</h2>
+            <p className="mb-4 opacity-80">
+              İş birlikleri ve projeler için.
+            </p>
+            <Link href="/contact" className="underline">
+              Bize ulaş →
+            </Link>
+          </div>
+
+        </div>
+      </section>
+    </>
   );
 }
+
