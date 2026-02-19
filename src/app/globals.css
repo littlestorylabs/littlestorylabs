@@ -24,3 +24,22 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Mevcut kodlarının devamına ekle */
+
+@layer base {
+  body {
+    @apply bg-black text-white; /* Sitenin arka planını ve yazı rengini garantiye alalım */
+    overflow-x: hidden; /* Sitenin sağa-sola gereksiz kaymasını engeller */
+  }
+}
+
+@layer utilities {
+  /* Menüdeki kaydırma çubuğunu gizlemek için */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

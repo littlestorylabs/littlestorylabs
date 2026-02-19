@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Hero({ title, subtitle, image }) {
   return (
-    <section className="relative w-full h-[65vh] md:h-[80vh] overflow-hidden rounded-2xl mb-12">
+    <section className="relative w-full h-[65vh] md:h-[80vh] overflow-hidden md:rounded-2xl mb-8 md:mb-12">
 
       {/* Background Image */}
       <Image
@@ -11,56 +11,47 @@ export default function Hero({ title, subtitle, image }) {
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover object-center"
       />
 
-      {/* Cinematic gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
+      {/* Overlay Düzenlemesi: 
+          Mobilde alttan yukarı (to-t), masaüstünde soldan sağa (to-r).
+          Bu, yazıların her iki cihazda da okunmasını sağlar.
+      */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent md:bg-gradient-to-r md:from-black/80 md:via-black/40 md:to-transparent" />
 
-      {/* Soft bottom fade for readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+      {/* Content Area */}
+      <div className="relative z-10 h-full flex items-end md:items-center">
+        <div className="w-full max-w-6xl mx-auto px-6 py-12 md:px-12">
+          <div className="max-w-2xl text-left"> {/* Mobilde de sola dayalı kalsın ki menüyle uyumlu olsun */}
+            
+            <h1 className="
+              text-white
+              text-3xl
+              md:text-6xl
+              font-bold
+              leading-[1.1]
+              tracking-tight
+            ">
+              {title}
+            </h1>
 
-      {/* Content */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-2xl px-6 md:px-12">
+            <p className="
+              mt-4
+              text-white/90
+              text-base
+              md:text-xl
+              leading-relaxed
+              max-w-md
+              md:max-w-xl
+            ">
+              {subtitle}
+            </p>
 
-          <h1 className="
-            text-white
-            text-4xl
-            md:text-6xl
-            font-bold
-            leading-tight
-            tracking-tight
-          ">
-            {title}
-          </h1>
-
-          <p className="
-            mt-4
-            text-white/90
-            text-lg
-            md:text-xl
-            leading-relaxed
-          ">
-            {subtitle}
-          </p>
-
-          {/* Optional CTA alanı — ileride konser / dinle linki koyabilirsin */}
-          {/* 
-          <div className="mt-8">
-            <a
-              href="#"
-              className="inline-block border border-white/40 text-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition"
-            >
-              Lalini Keşfet →
-            </a>
           </div>
-          */}
-
         </div>
       </div>
 
     </section>
   );
 }
-
