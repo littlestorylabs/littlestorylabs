@@ -48,9 +48,9 @@ export default function RootLayout({ children }) {
               <Image
                 src="/images/logo-v2.png"
                 alt="Little Story Labs"
-                width={120}
-                height={120}
-                className="rounded-full"
+                width={100}
+                height={100}
+                className="rounded-md"
                 priority
               />
             </Link>
