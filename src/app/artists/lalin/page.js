@@ -49,7 +49,25 @@ export default function LalinPage() {
           23 Şubat’ta ilk single'ı olan "Hadi Yak Gemileri" ile sizlerin karşısına çıkıyor.
         </p>
       </div>
-
+       
+       {/* YOUTUBE KLİP BÖLÜMÜ */}
+<div className="mt-12 w-full max-w-3xl mx-auto overflow-hidden rounded-xl shadow-2xl border border-white/10">
+  <div className="relative pt-[56.25%]"> {/* 16:9 Video Oranı */}
+    <iframe
+      className="absolute inset-0 w-full h-full"
+      src="https://www.youtube.com/embed/imRocCaloS0" 
+      title="Lalin Arma — Hadi Yak Gemileri (Official Music Video)"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  </div>
+  <div className="bg-black/40 p-4 text-center">
+    <p className="text-sm text-white/60 uppercase tracking-widest font-semibold">
+      Resmi Video Klip 23 Şubat'ta Yayında
+    </p>
+  </div>
+</div>
       {/* SOSYAL MEDYA - Kayma sorununu çözen bölüm */}
       <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 md:gap-4 pt-10">
 
