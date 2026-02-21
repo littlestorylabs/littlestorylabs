@@ -43,3 +43,35 @@ body {
     scrollbar-width: none;
   }
 }
+/* Scrollbar Tasarımı - Güncellenmiş Modern Mavi */
+::-webkit-scrollbar {
+  width: 6px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #000000; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e3a8a; /* Daha koyu, derin bir mavi */
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6; /* Üstüne gelince parlayan açık mavi */
+  box-shadow: 0 0 10px #3b82f6; /* Hafif bir parlama efekti */
+}
+
+.bg-aura {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* İçeriğin arkasında kalması için */
+  overflow: hidden;
+  background: radial-gradient(circle at 50% -20%, #1e3a8a33 0%, transparent 50%),
+              radial-gradient(circle at 0% 100%, #1e3a8a22 0%, transparent 40%);
+  pointer-events: none;
+}
