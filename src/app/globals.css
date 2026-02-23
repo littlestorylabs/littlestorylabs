@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -12,29 +12,58 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* GENEL AYARLAR */
+html {
+  color-scheme: dark;
+  /* scroll-behavior: smooth; SİLİNDİ: Lenis ile çakışmayı önlemek için tarayıcı varsayılanına dönüldü */
+}
+
+/* Lenis için kritik ayarlar */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
-/* Mevcut kodlarının devamına ekle */
 
 @layer base {
   body {
-    @apply bg-black text-white; /* Sitenin arka planını ve yazı rengini garantiye alalım */
-    overflow-x: hidden; /* Sitenin sağa-sola gereksiz kaymasını engeller */
+    @apply bg-black text-white;
   }
 }
 
+/* ÖZEL İMLEÇ (CURSOR) GİZLEME */
+@media (min-width: 768px) {
+  * {
+    cursor: none !important;
+  }
+  
+  a, button, input, select, textarea, [role="button"] {
+    cursor: none !important;
+  }
+}
+
+/* UTILITIES */
 @layer utilities {
-  /* Menüdeki kaydırma çubuğunu gizlemek için */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
@@ -43,7 +72,8 @@ body {
     scrollbar-width: none;
   }
 }
-/* Scrollbar Tasarımı - Güncellenmiş Modern Mavi */
+
+/* SCROLLBAR TASARIMI */
 ::-webkit-scrollbar {
   width: 6px; 
 }
@@ -53,25 +83,60 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e3a8a; /* Daha koyu, derin bir mavi */
+  background: #1e3a8a;
   border-radius: 10px;
-  transition: all 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6; /* Üstüne gelince parlayan açık mavi */
-  box-shadow: 0 0 10px #3b82f6; /* Hafif bir parlama efekti */
+  background: #3b82f6;
 }
 
+/* ARKA PLAN AURA */
 .bg-aura {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* İçeriğin arkasında kalması için */
+  z-index: -1;
   overflow: hidden;
   background: radial-gradient(circle at 50% -20%, #1e3a8a33 0%, transparent 50%),
               radial-gradient(circle at 0% 100%, #1e3a8a22 0%, transparent 40%);
   pointer-events: none;
+}
+
+/* GÖRSEL NETLİĞİ */
+img {
+  color-profile: sRGB;
+  rendering-intent: relative-colorimetric;
+}
+
+/* Grain (Kumlanma) Katmanı - Optimize Edildi */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 9999;
+  /* Animasyon performansı için transform yerine opacity titretme denenebilir 
+     veya alan 100% ile sabitlenebilir. */
+  animation: grain 0.8s steps(2) infinite;
+}
+
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-1%, -1%); }
+  20% { transform: translate(1%, 1%); }
+  30% { transform: translate(-2%, -2%); }
+  40% { transform: translate(2%, 2%); }
+  50% { transform: translate(-1%, 1%); }
+  60% { transform: translate(1%, -1%); }
+  70% { transform: translate(2%, 1%); }
+  80% { transform: translate(-2%, -1%); }
+  90% { transform: translate(1%, 2%); }
+  100% { transform: translate(0, 0); }
 }
